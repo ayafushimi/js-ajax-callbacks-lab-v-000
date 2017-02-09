@@ -21,6 +21,10 @@
   <body>
     <main id="main">
       <div id="errors"></div>
+      <div id="searchbox">
+        <input type="text" id="searchTerms">
+        <a href="#" onclick="searchRepositories()">Search Repositories</a>
+      </div>
     </main>
     <div class="flexbox-container">
       <div>
@@ -35,5 +39,24 @@
     <script src="jquery-3.1.0.min.js"></script>
     <script src="handlebars.js"></script>
     <script src="index.js"></script>
+
+    <script id="user-details-partial" type="text/x-handlebars-template">
+      <p>
+        <img width="32px" height="32px" src="{{ avatar_url }}">
+        <a href="{{ html_url }}">{{ login }}</a>
+      </p>
+    </script>
+    
+    <script id="result" type="text/x-handlebars-template">
+      <li>
+        <h3>${v["name"]}</h3>
+        <a href=# onclick="showCommits('${v["full_name"]}')">Show Commits</a>
+        <p>description: ${v["description"]}<br>
+          <a href="${v["html_url"]}">${v["html_url"]}</a>
+        </p>
+        =
+      </li>
+    </script>
+
   </body>
 </html>
